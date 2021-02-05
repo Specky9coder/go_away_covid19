@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:go_away/src/Models/Latest/Latest.dart';
 import 'package:go_away/src/Models/News/News.dart';
 import 'package:http/http.dart';
 import 'package:go_away/src/Models/Global/Global.dart';
@@ -23,6 +24,21 @@ class ApiProvider {
 
     if (response.statusCode == 200) {
       return allCountriesFromJson((response.body));
+    } else {
+      throw Exception('Failed To Get Global Data');
+    }
+  }
+
+  // ignore: missing_return
+  Future<Latest> getGloballyLatestData() async {
+    print('getGloballyLatestData()');
+
+    var response = await client.get('https://corona.lmao.ninja/v2/all',
+        headers: {HttpHeaders.acceptHeader: 'application/json'});
+
+    print('Global Data Response:${response.body.toString()}');
+    if (response.statusCode == 200) {
+      return Latest.fromJson(json.decode(response.body));
     } else {
       throw Exception('Failed To Get Global Data');
     }
