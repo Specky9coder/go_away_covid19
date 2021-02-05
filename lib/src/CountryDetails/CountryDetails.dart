@@ -1,4 +1,4 @@
-import 'dart:js';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -31,8 +31,7 @@ import 'package:pie_chart/pie_chart.dart';
 //
 //     graphColorList.add(casesColor);
 //     graphColorList.add(recoveredColor);
-//     graphColorList.add(deathsColor);
-//
+////     graphColorList.add(deathsColor);
 //     userCountryData = widget.country;
 //     dataMap.putIfAbsent("Confirmed", () => userCountryData.cases.toDouble());
 //     dataMap.putIfAbsent(

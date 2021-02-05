@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_away/src/GlobalPage/GlobalPage.dart';
 import 'package:go_away/src/Utils/ColorUtils/ColorUtil.dart';
 import 'package:go_away/src/Utils/StyleUtils/StyleUtil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -9,6 +10,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  Widget currentScreen = GlobalPage();
+  final PageStorageBucket bucket = PageStorageBucket();
+
   int currentTab = 0;
 
   void removeUserCountry() async {
@@ -74,7 +78,11 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
-      body: PageStorage(),
+      body: PageStorage(
+        bucket: bucket,
+        child: currentScreen,
+      ),
+
     );
   }
 }
