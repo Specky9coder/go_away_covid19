@@ -146,8 +146,7 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-
-void removeUserCountry() async  {
+void removeUserCountry() async {
   var preference = await SharedPreferences.getInstance();
   preference.remove('userCountry');
 }
